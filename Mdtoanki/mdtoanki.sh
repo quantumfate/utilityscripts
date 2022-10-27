@@ -16,6 +16,7 @@ joplinDbLocation=$HOME/.config/joplin-desktop/database.sqlite
 ## The location of the generated Anki deck
 ankiDeckLocation=$HOME/ownCloud/HAWCloud/04Sem/anki/$2/$3.apkg
 ## The name of the Anki Deck
+# :: in anki declares a subdeck
 deckName=04_Sem::$2::$3
 
 sqlite3 $joplinDbLocation "SELECT * from notes WHERE id = '$1'" > $outputFile

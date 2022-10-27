@@ -17,7 +17,9 @@ Follow these steps to avoid unexpected behaviour
 
 ## Usage
 
-`mdtoanki <joplin note id> <folder> <deckname>`
+Have a look at the [example.md](./example.md). This is how I write my markdown for successful generation.
+
+Command: `mdtoanki <joplin note id> <folder> <deckname>`
 
 joplin note id = $1
 folder = $2
