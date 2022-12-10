@@ -13,6 +13,6 @@ pdf_file=$1
 mkdir ${pdf_file%.pdf}_pages
 
 # Split the PDF into individual pages and store them in the folder
-pdftk ${pdf_file} burst output ${pdf_file%.pdf}_pages/page_%04d.pdf
+pdftk ${pdf_file} burst output output/${pdf_file%.pdf}_pages/page_%04d.pdf
 
 echo "Split PDF pages are stored in ${pdf_file%.pdf}_pages folder."
