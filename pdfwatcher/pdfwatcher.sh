@@ -22,10 +22,21 @@ touch -c "$PDF_TRACKER_FILE" || {
 }
 
 # Delete all PDFs listed in the textfile on system startup
-rm -f $(cat "$PDF_TRACKER_FILE")
+rm -f $(cat "$PDF_TRACKER_FILE" | tr '\n' ' ')
+clear_pdfs() {
+  # Read the file line by line
+  while IFS= read -r line
+  do
+    # Use the rm command to delete each line
+    rm -f "$line"
+  done < "$PDF_TRACKER_FILE"
 
-# Clear the list of downloaded PDFs
-echo -n > "$PDF_TRACKER_FILE"
+  # Clear the list of downloaded PDFs
+  echo -n > "$PDF_TRACKER_FILE"
+}
+
+
+clear_pdfs
 
 # Use inotifywait to monitor the directory where PDFs are downloaded
 # and open any new PDFs with Okular as they are downloaded
