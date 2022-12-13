@@ -1,1 +1,2 @@
 source $HOME/.sripts/customfunctions.sh
+export PATH="$PATH:$HOME/.scripts/pdfwatcher/"
