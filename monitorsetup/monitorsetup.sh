@@ -18,7 +18,7 @@
 #
 # position = Y x X
 
- ## retrieving arguments
+## retrieving arguments
 DOCKED=false
 
 for i in "$@"; do
@@ -122,7 +122,7 @@ do
       # adding the rest of the command
       commandBuilder+=" --mode ${values[1]} --rate ${values[2]} --rotation ${values[4]}"
 
-      # Using detailed positioning by defining position by pixel
+      # adding the calculated position
       commandBuilder+=" --pos ${current_position}"
       appended_width=$(( appended_width + current_width ))
 
