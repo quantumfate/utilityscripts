@@ -46,12 +46,13 @@ if [ "$DOCKED" = true ]
 then
 
   # monitor # resolution # frequency # x relative from top # rotation # primary # dpi
-  left=("HDMI-A-0" "2560x1440" "60" "0" "normal" "no" "110")
-  middle=("DisplayPort-1" "2560x1440" "60" "0" "normal" "no" "110")
-  right=("eDP" "1920x1080" "60" "360" "normal" "yes" "120") # Laptop
+  laptop=("eDP" "1920x1080" "60" "0" "normal" "yes" "120") # Laptop
+  left=("DisplayPort-2" "2560x1440" "60" "0" "normal" "no" "110")
+  middle=("DisplayPort-3" "2560x1440" "60" "0" "normal" "no" "110")
+  right=("DisplayPort-4" "2560x1440" "60" "0" "normal" "no" "110")
 
   # Set the monitor variable for the current setup
-  monitors=(left middle right)
+  monitors=(laptop left middle right)
 
 else
 
@@ -78,7 +79,7 @@ do
   if xrandr --query | grep -q "${values[0]} connected"; then
 
       # Set the dpi value for each individual screen
-      commandBuilder+=" --dpi ${values[6]}x${values[6]}"
+  #    commandBuilder+=" --dpi ${values[6]}x${values[6]}"
 
       # Add the current monitor to the command
       commandBuilder+=" --output ${values[0]}"
@@ -88,21 +89,22 @@ do
       fi
      
       # Relative position on the y axis from the top
-      y=${values[3]}
+#      y=${values[3]}
       
       # Split the resolution of the current monitor into the width and height values
-      IFS='x' read -ra resolution_parts <<< "${values[1]}"
-      current_width=${resolution_parts[0]}
+#      IFS='x' read -ra resolution_parts <<< "${values[1]}"
+#      current_width=${resolution_parts[0]}
 
       # Update the current position to the right of the current monitor
-      current_position="${current_x_pos}x$y"
+#      current_position="${current_x_pos}x$y"
       
       # adding the rest of the command
       commandBuilder+=" --mode ${values[1]} --rate ${values[2]} --rotation ${values[4]}"
+      #commandBuilder+=" --auto"
 
       # adding the calculated position
-      commandBuilder+=" --pos ${current_position}"
-      current_x_pos=$(( current_x_pos + current_width ))
+#      commandBuilder+=" --pos ${current_position}"
+#      current_x_pos=$(( current_x_pos + current_width ))
 
       finalCommand+="$commandBuilder"
       commandBuilder=""

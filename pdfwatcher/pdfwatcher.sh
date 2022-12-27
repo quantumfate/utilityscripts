@@ -33,7 +33,7 @@ inotifywait -m -e create --format '%f' "$HOME/Downloads" | while read pdf; do
 	# mv the downloaded file into the tmp dir
 	mv "$HOME/Downloads/$pdf" $PDF_TRACKER_DIR	
 
-        okular --unique "$PDF_TRACKER_DIR/$pdf" &
+        zathura "$PDF_TRACKER_DIR/$pdf" &
     fi
 done
 
