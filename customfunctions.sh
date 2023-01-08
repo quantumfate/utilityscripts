@@ -34,9 +34,12 @@ clip_this() {
   cat $1 | xclip -sel clip 
 }
 
-# 
-# ranger_save_last_location() {
-#   zsh; local pid=$! && ranger --choosedir=$HOME/.rangerdir;
-#   kill $pid
-#
-# }
+# Git alias to write commit messages without pesky flags
+cgit() {
+  git commit -m "$1"
+}
+
+# Dotbare alias to write commit messages without pesky flags
+cgit() {
+dotbare commit -m "$1"
+}
