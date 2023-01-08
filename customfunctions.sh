@@ -40,6 +40,6 @@ cgit() {
 }
 
 # Dotbare alias to write commit messages without pesky flags
-cgit() {
+cdot() {
 dotbare commit -m "$1"
 }
